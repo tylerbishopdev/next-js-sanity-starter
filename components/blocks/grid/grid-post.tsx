@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
+import { Locale } from "@/i18n-config";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ChevronRight } from "lucide-react";
-import { Badge } from "../badge";
-import { Locale } from "@/i18n-config";
+import { Badge } from "@/components/ui/badge";
 import { PAGE_QUERYResult, ColorVariant } from "@/sanity.types";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
