@@ -87,10 +87,11 @@ export default function FormNewsletter({
   const color = stegaClean(colorVariant);
 
   return (
+
     <SectionContainer color={color} padding={padding}>
       <Form {...form}>
-        <form className="pt-8" onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex gap-4">
+        <form className="pt-8 relative w-full mx-auto justify-center" onSubmit={form.handleSubmit(onSubmit)}>
+          <div className="flex w-full gap-4">
             <FormField
               control={form.control}
               name="email"
@@ -126,5 +127,6 @@ export default function FormNewsletter({
         </form>
       </Form>
     </SectionContainer>
+
   );
 }

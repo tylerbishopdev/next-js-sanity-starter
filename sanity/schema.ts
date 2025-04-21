@@ -16,6 +16,7 @@ import sectionPadding from "./schemas/blocks/shared/section-padding";
 // Schema UI objects
 import hero1 from "./schemas/blocks/hero/hero-1";
 import hero2 from "./schemas/blocks/hero/hero-2";
+import mainHero from "./schemas/blocks/hero/main-hero";
 import sectionHeader from "./schemas/blocks/section-header";
 import splitRow from "./schemas/blocks/split/split-row";
 import splitContent from "./schemas/blocks/split/split-content";
@@ -28,54 +29,80 @@ import gridCard from "./schemas/blocks/grid/grid-card";
 import pricingCard from "./schemas/blocks/grid/pricing-card";
 import gridPost from "./schemas/blocks/grid/grid-post";
 import gridRow from "./schemas/blocks/grid/grid-row";
+import threeGrid from "./schemas/blocks/grid/three-grid";
+import threeGridAnimated from "./schemas/blocks/grid/three-grid-animated";
+import featuresStaggered from "./schemas/blocks/grid/features-staggered";
 import carousel1 from "./schemas/blocks/carousel/carousel-1";
 import carousel2 from "./schemas/blocks/carousel/carousel-2";
 import timelineRow from "./schemas/blocks/timeline/timeline-row";
 import timelinesOne from "./schemas/blocks/timeline/timelines-1";
 import cta1 from "./schemas/blocks/cta/cta-1";
 import logoCloud1 from "./schemas/blocks/logo-cloud/logo-cloud-1";
+import logoCloud2 from "./schemas/blocks/logo-cloud/logo-cloud-2";
 import faqs from "./schemas/blocks/faqs";
 import newsletter from "./schemas/blocks/forms/newsletter";
 import allPosts from "./schemas/blocks/all-posts";
+import bigStatsSection from "./schemas/blocks/big-stats-section";
+import socialProof from "./schemas/blocks/social-proof";
+import featureCard from "./schemas/blocks/feature-card";
+import flexColumns from "./schemas/blocks/flex-columns";
+// Import the stats-card schema
+import statsCard from "./schemas/blocks/stats-card";
+// Import the cards schema
+import cards from "./schemas/blocks/cards";
+// Import the tabbed-content schema
+import tabbedContent from "./schemas/blocks/tabbed-content";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [
-    // documents
-    page,
-    post,
-    author,
-    category,
-    faq,
-    testimonial,
-    // shared objects
-    blockContent,
-    link,
-    colorVariant,
-    buttonVariant,
-    sectionPadding,
-    // blocks
-    hero1,
-    hero2,
-    sectionHeader,
-    splitRow,
-    splitContent,
-    splitCardsList,
-    splitCard,
-    splitImage,
-    splitInfoList,
-    splitInfo,
-    gridCard,
-    pricingCard,
-    gridPost,
-    gridRow,
-    carousel1,
-    carousel2,
-    timelineRow,
-    timelinesOne,
-    cta1,
-    logoCloud1,
-    faqs,
-    newsletter,
-    allPosts,
-  ],
+	types: [
+		// documents
+		page,
+		post,
+		author,
+		category,
+		faq,
+		testimonial,
+		// shared objects
+		blockContent,
+		link,
+		colorVariant,
+		buttonVariant,
+		sectionPadding,
+		// blocks
+		hero1,
+		hero2,
+		mainHero,
+		sectionHeader,
+		splitRow,
+		splitContent,
+		splitCardsList,
+		splitCard,
+		splitImage,
+		splitInfoList,
+		splitInfo,
+		gridCard,
+		pricingCard,
+		gridPost,
+		gridRow,
+		threeGrid,
+		threeGridAnimated,
+		featuresStaggered,
+		carousel1,
+		carousel2,
+		timelineRow,
+		timelinesOne,
+		cta1,
+		logoCloud1,
+		logoCloud2,
+		faqs,
+		newsletter,
+		allPosts,
+		bigStatsSection,
+		socialProof,
+		featureCard,
+		flexColumns,
+		statsCard,
+		cards,
+		tabbedContent,
+	],
 };

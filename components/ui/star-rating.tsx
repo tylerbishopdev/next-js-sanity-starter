@@ -36,7 +36,7 @@ export function StarRating({
             />
           );
         }
-        return <Star key={i} className="w-4 h-4 text-gray-300" />;
+        return <Star key={i} className="w-4 h-4 text-foreground" />;
       })}
     </div>
   );
