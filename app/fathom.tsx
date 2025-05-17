@@ -1,13 +1,18 @@
 // Fathom.tsx
 "use client"
 
-import {load, trackPageview} from "fathom-client"
-import {useEffect} from "react"
+import { load, trackPageview } from "fathom-client"
+import { useEffect } from "react"
+import { trackEvent } from 'fathom-client';
 
+// In your component
+const trackSignup = () => {
+  trackEvent('signup');
+};
 export default function Fathom() {
   // Load the Fathom script on mount
   useEffect(() => {
-    load("ENDKUDGL", {
+    load("YCNAJTIP", {
       auto: false
     })
   }, [])

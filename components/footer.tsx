@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import React from "react"
-import Script from "next/script"
+
 
 interface FooterNavItem {
   href: string
@@ -31,52 +31,33 @@ interface SiteFooterProps {
   logoSrc?: string
 }
 
-export default function Footer({navs, bottomLinks, socialLinks, logoSrc}: SiteFooterProps) {
+export default function Footer({ navs, bottomLinks, socialLinks, logoSrc }: SiteFooterProps) {
   // Default navigation data
   const defaultNavs: FooterNav[] = [
     {
-      label: "Product",
+      label: "MORE",
       items: [
-        {href: "/ezoic-ads", name: "Ads"},
-        {href: "/ezid", name: "ezID"},
-        {href: "/video", name: "Video"},
-        {href: "/services", name: "Services"},
-        {href: "/cloud", name: "Cloud"},
-        {href: "/setup", name: "Setup"},
-        {href: "/big-data-analytics", name: "Analytics"}
+        { href: "/creators", name: "Creators" },
+        { href: "/websites", name: "Websites" },
+        { href: "/video-ads", name: "Video Ads" },
+        { href: "/integrations", name: "Integrations" }
       ]
     },
     {
-      label: "Resources",
+      label: "RESOURCES",
       items: [
-        {href: "https://login.ezoic.com", name: "Login"},
-        {href: "/faq", name: "FAQ"},
-
-        {href: "/events", name: "Events"},
-        {href: "https://support.ezoic.com", name: "Support"},
-        {href: "/ezoic-reviews", name: "Reviews"},
-        {href: "/blog", name: "Blog"},
-        {href: "https://docs.ezoic.com", name: "Docs"}
-      ]
-    },
-
-    {
-      label: "Company",
-      items: [
-        {href: "/about-us", name: "About"},
-        {href: "/partners", name: "Partners"},
-        {href: "https://ezoic-inc.breezy.hr/", name: "Careers"},
-        {href: "/contact-us", name: "Contact"},
-        {href: "/ezoic-cares-csr", name: "CSR"},
-        {href: "/press", name: "Press"}
+        { href: "/about-us", name: "About Us" },
+        { href: "/help-center", name: "Help Center" },
+        { href: "/guides", name: "Guides" },
+        { href: "/blog", name: "Blog" }
       ]
     }
   ]
 
   // Default bottom links
   const defaultBottomLinks: FooterBottomItem[] = [
-    {href: "/privacy-policy", name: "Privacy Policy"},
-    {href: "/terms", name: "Terms"}
+    { href: "/privacy-policy", name: "Privacy Policy" },
+    { href: "/terms", name: "Terms" }
   ]
 
   // Default social links
@@ -99,22 +80,7 @@ export default function Footer({navs, bottomLinks, socialLinks, logoSrc}: SiteFo
       label: "X",
       icon: (
         <svg viewBox="0,0,256,256" width="26px" height="26px" className="dark:invert-0 invert">
-          <g
-            fill="#ffffff"
-            fillRule="nonzero"
-            stroke="none"
-            strokeWidth="1"
-            strokeLinecap="butt"
-            strokeLinejoin="miter"
-            strokeMiterlimit="10"
-            strokeDasharray=""
-            strokeDashoffset="0"
-            fontFamily="none"
-            fontWeight="none"
-            fontSize="none"
-            textAnchor="none"
-            style={{mixBlendMode: "normal"}}
-          >
+          <g fill="#ffffff" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" style={{ mixBlendMode: "normal" }}>
             <g transform="scale(5.12,5.12)">
               <path d="M11,4c-3.85433,0 -7,3.14567 -7,7v28c0,3.85433 3.14567,7 7,7h28c3.85433,0 7,-3.14567 7,-7v-28c0,-3.85433 -3.14567,-7 -7,-7zM11,6h28c2.77367,0 5,2.22633 5,5v28c0,2.77367 -2.22633,5 -5,5h-28c-2.77367,0 -5,-2.22633 -5,-5v-28c0,-2.77367 2.22633,-5 5,-5zM13.08594,13l9.22266,13.10352l-9.30859,10.89648h2.5l7.9375,-9.29297l6.53906,9.29297h7.9375l-10.125,-14.38672l8.21094,-9.61328h-2.5l-6.83984,8.00977l-5.63672,-8.00977zM16.91406,15h3.06445l14.10742,20h-3.06445z"></path>
             </g>
@@ -123,7 +89,7 @@ export default function Footer({navs, bottomLinks, socialLinks, logoSrc}: SiteFo
       )
     },
     {
-      href: "https://www.linkedin.com/company/ezoic-inc-/?",
+      href: "https://www.linkedin.com/company/ezoic",
       label: "LinkedIn",
       icon: (
         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -141,119 +107,62 @@ export default function Footer({navs, bottomLinks, socialLinks, logoSrc}: SiteFo
   const navData = navs || defaultNavs
   const bottomData = bottomLinks || defaultBottomLinks
   const socialData = socialLinks || defaultSocialLinks
-  const logo = logoSrc || "/images/plainezoic.png"
+  const logo = logoSrc || "/images/wtlogo.png"
 
   return (
-    <footer>
-      <div className="mx-auto w-full max-w-screen-xl justify-centerxl:pb-2 mb-10 mt-20 px-6 ">
-        {/* Main Section: Logo with Social Icons and Navigation */}
-        <div className="md:flex md:justify-between px-8 p-4 py-16 sm:pb-16 gap-4">
-          {/* Logo and Social Icons Column */}
-          <div className="mb-12 md:mb-0 flex flex-col justify-together pb-2 lg:pt-10">
-            <Link href="/">
-              <Image src={logo} alt="Ezoic Logo" width={100} height={32} className="self-center pb-4 opacity-70 mx-auto lg:mx-0 lg:self-start dark:grayscale-0 grayscale invert dark:invert-0" style={{height: "auto"}} />
-            </Link>
-            <div className="flex justify-center md:justify-start mt-4 md:mt-0">
-              {socialData.map((social) => (
-                <Link key={social.label} href={social.href} className="mr-4 last:mr-0">
-                  <span className="text-foreground hover:text-muted opacity-80">
+    <footer className="">
+      <div className="mx-auto w-full max-w-screen-xl">
+        {/* Main Navigation Sections */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 py-12">
+          {navData.map((nav) => (
+            <div key={nav.label} className="flex flex-col">
+              <h2 className="text-sm font-medium mb-6">{nav.label}</h2>
+              <ul className="space-y-4">
+                {nav.items.map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href}>
+                      <span className="cursor-pointer text-sm hover:text-gray-300">{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Logo and Bottom Section */}
+        <div className="border-t border-gray-800 px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            {/* Logo */}
+            <div className="mb-4 md:mb-0">
+              <Link href="/">
+                <Image src={logo} alt="Logo" width={120} height={40} className="invert" />
+              </Link>
+            </div>
+
+            {/* Bottom Links */}
+            <div className="flex flex-wrap items-center gap-6">
+              {/* Social Links */}
+              <div className="flex space-x-4">
+                {socialData.map((social) => (
+                  <Link key={social.label} href={social.href} className="text-gray-400 hover:text-white">
                     <span className="sr-only">{social.label}</span>
                     {social.icon}
-                  </span>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Privacy & Terms */}
+              <div className="flex space-x-4 text-xs text-gray-400">
+                {bottomData.map((link) => (
+                  <Link key={link.name} href={link.href}>
+                    <span className="hover:text-white">{link.name}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-          {/* Navigation Links */}
-          <div className="grid grid-cols-1 lg:gap-28 gap-20 sm:grid-cols-3 mx-auto lg:mx-0 text-center lg:text-left">
-            {navData.map((nav) => (
-              <div key={nav.label}>
-                <h2 className="pb-1 border-b-0 lg:border-b border-muted mx-auto lg:mx-0 w-full text-base text-accent tracking-normal">{nav.label}</h2>
-                <ul className="gap-2 grid  pt-1 w-full mx-auto lg:mx-0">
-                  {nav.items.map((item) => (
-                    <li key={item.name}>
-                      <Link href={item.href}>
-                        <span className="cursor-pointer text-sm hover:text-primary">{item.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
-        {/* Bottom Section: Policy Links and Copyright */}
-        <div className="flex flex-col lg:flex-row justify-center items-center lg:justify-between px-8 py-2 mt-2  ">
-          <div className="flex flex-wrap justify-center lg:justify-start mb-2 lg:mb-0">
-            {bottomData.map((link, index) => (
-              <React.Fragment key={link.name}>
-                <Link href={link.href}>
-                  <span className="text-xs opacity-70 hover:brightness-150 cursor-pointer">{link.name}</span>
-                </Link>
-                {index < bottomData.length - 1 && <span className="mx-2 text-xs opacity-70"></span>}
-              </React.Fragment>
-            ))}
-          </div>
-          <span className="text-xs opacity-30 pt-2 font-medium text-center lg:text-right"> {new Date().getFullYear()} Ezoic. All rights reserved.</span>
-        </div>
-      </div>
-
-      {/* Analytics and Tracking Scripts */}
-      <Script id="fathom-event-script" strategy="afterInteractive">
-        {`
-          document.addEventListener('DOMContentLoaded', function() {
-            if (typeof fathom !== 'undefined') {
-              fathom.trackEvent(
-                "signup",
-                "integrated",
-                "live",
-                "ezoic__signup",
-                "newsletter"
-              );
-            }
-          });
-        `}
-      </Script>
-
-      <Script id="vercel-analytics-init" strategy="afterInteractive">
-        {`
-          window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-        `}
-      </Script>
-
-      <Script id="vercel-analytics-event" strategy="afterInteractive">
-        {`
-          if (typeof va !== 'undefined') {
-            va("event", {
-              name: ["signup", "integrated", "live", "newsletter"],
-              data: {
-                location: "footer"
-              }
-            });
-          }
-        `}
-      </Script>
-
-      {/* PostAffiliate Pro - Load as a traditional script tag with dangerouslySetInnerHTML to ensure proper self-reference */}
-      <div id="pap-container">
-        <Script id="postaffiliatepro-script" strategy="afterInteractive">
-          {`
-            (function() {
-              var script = document.createElement('script');
-              script.id = 'pap_x2s6df8d';
-              script.src = 'https://ezoic.postaffiliatepro.com/scripts/trackjs.js';
-              script.onload = function() {
-                if (typeof PostAffTracker !== 'undefined') {
-                  PostAffTracker.setAccountId('default1');
-                  try {
-                    PostAffTracker.track();
-                  } catch (err) { console.log('PostAffTracker error:', err); }
-                }
-              };
-              document.getElementById('pap-container').appendChild(script);
-            })();
-          `}
-        </Script>
       </div>
     </footer>
   )
