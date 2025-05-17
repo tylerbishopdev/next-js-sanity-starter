@@ -6,6 +6,7 @@ import author from "./schemas/documents/author";
 import category from "./schemas/documents/category";
 import faq from "./schemas/documents/faq";
 import testimonial from "./schemas/documents/testimonial";
+import caseStudy from "./schemas/documents/case-study";
 
 // Schema UI shared objects
 import blockContent from "./schemas/blocks/shared/block-content";
@@ -32,6 +33,17 @@ import gridRow from "./schemas/blocks/grid/grid-row";
 import threeGrid from "./schemas/blocks/grid/three-grid";
 import threeGridAnimated from "./schemas/blocks/grid/three-grid-animated";
 import featuresStaggered from "./schemas/blocks/grid/features-staggered";
+
+// Case Study blocks
+import caseStudyHero from "./schemas/blocks/case-study-hero";
+import caseStudyOverview from "./schemas/blocks/case-study-overview";
+
+
+import caseStudyResults from "./schemas/blocks/case-study-results";
+import caseStudyGallery from "./schemas/blocks/case-study-gallery";
+
+import caseStudyGrid from "./schemas/blocks/case-study-grid";
+
 import carousel1 from "./schemas/blocks/carousel/carousel-1";
 import carousel2 from "./schemas/blocks/carousel/carousel-2";
 import timelineRow from "./schemas/blocks/timeline/timeline-row";
@@ -41,6 +53,8 @@ import logoCloud1 from "./schemas/blocks/logo-cloud/logo-cloud-1";
 import logoCloud2 from "./schemas/blocks/logo-cloud/logo-cloud-2";
 import faqs from "./schemas/blocks/faqs";
 import newsletter from "./schemas/blocks/forms/newsletter";
+import contactForm from "./schemas/blocks/forms/contact-form";
+import basicForm from "./schemas/blocks/forms/basic-form";
 import allPosts from "./schemas/blocks/all-posts";
 import bigStatsSection from "./schemas/blocks/big-stats-section";
 import socialProof from "./schemas/blocks/social-proof";
@@ -52,6 +66,17 @@ import statsCard from "./schemas/blocks/stats-card";
 import cards from "./schemas/blocks/cards";
 // Import the tabbed-content schema
 import tabbedContent from "./schemas/blocks/tabbed-content";
+// Import the tabbed-features schema
+import tabbedFeatures from "./schemas/blocks/tabbed-features";
+// Import the about template
+import about from "./schemas/blocks/template/about";
+// Import the full-row component
+import fullRow from "./schemas/blocks/full-row";
+// Import the items component
+import items from "./schemas/blocks/items";
+import customBlock from "./schemas/blocks/custom";
+// Import rich text row
+import richTextRow from "./schemas/blocks/rich-text-row";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
@@ -62,6 +87,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		category,
 		faq,
 		testimonial,
+		caseStudy,
 		// shared objects
 		blockContent,
 		link,
@@ -80,13 +106,24 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		splitImage,
 		splitInfoList,
 		splitInfo,
+		gridRow,
+		gridPost,
 		gridCard,
 		pricingCard,
-		gridPost,
-		gridRow,
 		threeGrid,
 		threeGridAnimated,
 		featuresStaggered,
+
+		// case study blocks
+		caseStudyHero,
+		caseStudyOverview,
+
+		caseStudyResults,
+		caseStudyGallery,
+
+
+		caseStudyGrid,
+
 		carousel1,
 		carousel2,
 		timelineRow,
@@ -96,6 +133,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		logoCloud2,
 		faqs,
 		newsletter,
+		contactForm,
+		basicForm,
 		allPosts,
 		bigStatsSection,
 		socialProof,
@@ -104,5 +143,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		statsCard,
 		cards,
 		tabbedContent,
+		tabbedFeatures,
+		about,
+		fullRow,
+		items,
+		customBlock,
+		richTextRow,
 	],
 };

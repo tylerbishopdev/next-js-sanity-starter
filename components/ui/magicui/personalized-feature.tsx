@@ -1,7 +1,7 @@
 "use client"
 
-import {cubicBezier, motion} from "framer-motion"
-import {Button} from "@/components/ui/button" // Add this import
+import { cubicBezier, motion } from "framer-motion"
+
 import Image from "next/image"
 
 export function PersonalizedFeatureCard() {
@@ -128,7 +128,7 @@ export function PersonalizedFeatureCard() {
           </motion.div>
         </div>
 
-        
+
       </motion.div>
     </div>
   )

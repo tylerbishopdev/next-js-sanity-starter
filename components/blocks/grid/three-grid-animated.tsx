@@ -17,8 +17,7 @@ const COMPONENT_MAP: Record<string, React.ReactElement> = {
 	// Add more components as needed
 }
 
-export interface BentoItem
-{
+export interface BentoItem {
 	_key: string
 	title: string
 	description: string
@@ -29,8 +28,7 @@ export interface BentoItem
 	}
 }
 
-export interface ThreeGridAnimatedProps
-{
+export interface ThreeGridAnimatedProps {
 	_type: "three-grid-animated"
 	_key: string
 	title?: string
@@ -43,23 +41,22 @@ export interface ThreeGridAnimatedProps
 	colorVariant?: string
 }
 
-const BentoBox: React.FC<{ item: BentoItem; className?: string }> = ({ item, className }) =>
-{
+const BentoBox: React.FC<{ item: BentoItem; className?: string }> = ({ item, className }) => {
 	// Get the component based on the componentKey or use a fallback
 	const component = item.componentKey ? COMPONENT_MAP[item.componentKey] : null
 
 	return (
-		<div className={`border border-border bg-gradient-to-tl from-foreground/5 to-input/10  p-2 ${className}`}>
+		<div className={`border border-border bg-gradient-to-b from-transparent via-muted/20 to-muted/10  p-2 ${className}`}>
 			<div className="lg:h-full flex flex-col justify-between ">
 				<div className="flex-grow flex flex-col justify-center">
 					<div className="mb-0">{component}</div>
 					<div className="px-6 lg:px-10">
-						<h3 className="mb-0 text-pretty text-gradient pb-1">{item.title}</h3>
+						<h3 className="mb-0 text-pretty pb-1">{item.title}</h3>
 						<p className="leading-6 text-foreground max-w-3xl pt-4 pb-6">{item.description}</p>
 					</div>
 				</div>
 				{item.link && (
-					<Link href={item.link.href} className="bg-primary text-primary-foreground shadow-sm hover:brightness-125 tracking-tight font-semibold  text-xs  px-2 pb-2 mb-4 pt-2 text-center w-28 mx-8 inline-flex align-top justify-center mt-4">
+					<Link href={item.link.href} className="bg-primary text-background rounded-full shadow-sm hover:brightness-125 tracking-tight font-semibold  text-xs  px-2 pb-2 mb-4 pt-2 text-center w-28 mx-8 inline-flex align-top justify-center mt-4">
 						{item.link.label}
 					</Link>
 				)}
@@ -68,10 +65,8 @@ const BentoBox: React.FC<{ item: BentoItem; className?: string }> = ({ item, cla
 	)
 }
 
-export default function ThreeGridAnimated({ title, description, items = [], padding, colorVariant }: ThreeGridAnimatedProps)
-{
-	if (items.length === 0)
-	{
+export default function ThreeGridAnimated({ title, description, items = [], padding, colorVariant }: ThreeGridAnimatedProps) {
+	if (items.length === 0) {
 		return null
 	}
 
@@ -85,8 +80,8 @@ export default function ThreeGridAnimated({ title, description, items = [], padd
 		<section className={cn("w-full max-w-6xl mx-auto p-4", paddingClass, colorVariant)}>
 			{title && (
 				<div className="text-center mb-10">
-					<h2>{title}</h2>
-					{description && <p className="text-muted-foreground">{description}</p>}
+					<h2 className="pb-4 text-4xl pt-4">{title}</h2>
+					{description && <p className="text-foreground max-w-xl mx-auto">{description}</p>}
 				</div>
 			)}
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-4 z-40 ">

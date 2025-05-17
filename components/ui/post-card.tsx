@@ -6,8 +6,17 @@ import { POSTS_QUERYResult } from "@/sanity.types";
 
 type PostCard = NonNullable<POSTS_QUERYResult[number]>;
 
-interface PostCardProps extends Omit<PostCard, "slug"> {
+// Make the new fields optional to maintain compatibility with existing code
+interface PostCardProps {
   className?: string;
+  title?: string | null;
+  excerpt?: string | null;
+  image?: any;
+  // These fields were added to POSTS_QUERY but aren't used in the component
+  link?: string | null;
+  _createdAt?: string | null;
+  displayDate?: string | null;
+  publishedAt?: string | null;
 }
 
 export default function PostCard({
@@ -45,7 +54,16 @@ export default function PostCard({
             <h3 className="font-bold text-[1.5rem] leading-[1.2]">{title}</h3>
           </div>
         )}
-        {excerpt && <p>{excerpt}</p>}
+        {excerpt && (
+          <p className="text-sm text-muted-foreground">
+            {typeof excerpt === 'string' 
+              ? excerpt.replace(/<[^>]*>/g, '') // Strip HTML tags
+              : Array.isArray(excerpt)
+                ? 'Read more...' // For Portable Text, use simple prompt
+                : String(excerpt)
+            }
+          </p>
+        )}
       </div>
       <div className="mt-3 xl:mt-6 w-10 h-10 border rounded-full flex items-center justify-center group-hover:border-primary">
         <ChevronRight

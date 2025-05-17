@@ -5,16 +5,14 @@ import { BarChart, Globe, Layout, PlayCircle, Store, Users } from "lucide-react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
-export interface CardItem
-{
+export interface CardItem {
 	_key: string
 	header: string
 	subheader: string
 	icon: string
 }
 
-export interface FeatureCardProps
-{
+export interface FeatureCardProps {
 	_type: "feature-card"
 	_key: string
 	heading?: string
@@ -49,11 +47,10 @@ export default function FeatureCard({
 	cards = [],
 	padding,
 	colorVariant
-}: FeatureCardProps)
-{
+}: FeatureCardProps) {
 	return (
-		<section className={cn("py-0 mx-auto px-4 max-w-6xl rounded-lg", padding, colorVariant)}>
-			<div className="flex lg:flex-row flex-col  lg:max-w-6xl justify-center items-center pt-6 border mt-4  border-border p-6 mx-auto bg-gradient-to-tr from-input/20 to-muted/10 rounded-lg">
+		<section className={cn("py-0 mx-auto px-4 max-w-6xl rounded-lg ", padding, colorVariant)}>
+			<div className="flex lg:flex-row flex-col  lg:max-w-6xl justify-center items-center pt-6  mt-4 border bg-bento p-6 mx-auto  rounded-lg">
 				<div className="lg:w-1/2 w-full pr-0 pt-2 grid lg:grid-cols-1 gap-0">
 					<h2 className="tracking-tighter mb-0 lg:my-2 text-center px-6 lg:px-10">{heading}</h2>
 					<p className="mx-auto text-sm px-12 text-center pb-6">{description}</p>

@@ -48,22 +48,33 @@ export default defineType({
 				{ type: "three-grid" },
 				{ type: "three-grid-animated" },
 				{ type: "features-staggered" },
+				{ type: "full-row" },
+				{ type: "rich-text-row" },
 				{ type: "feature-card" },
 				{ type: "stats-card" },
+				{ type: "items" },
 				{ type: "carousel-1" },
 				{ type: "carousel-2" },
+
+
 				{ type: "timeline-row" },
 				{ type: "cta-1" },
 				{ type: "logo-cloud-1" },
 				{ type: "logo-cloud-2" },
 				{ type: "faqs" },
 				{ type: "form-newsletter" },
+				{ type: "contact-form" },
+				{ type: "basic-form" },
 				{ type: "all-posts" },
+				{ type: "case-study-grid" },
 				{ type: "big-stats-section" },
 				{ type: "social-proof" },
 				{ type: "flex-columns" },
 				{ type: "cards" },
 				{ type: "tabbed-content" },
+				{ type: "tabbed-features" },
+				{ type: "about" },
+				{ type: "custom-block" },
 			],
 			options: {
 				insertMenu: {
@@ -72,6 +83,11 @@ export default defineType({
 							name: "hero",
 							title: "Hero",
 							of: ["hero-1", "hero-2", "main-hero"],
+						},
+						{
+							name: "content",
+							title: "Content",
+							of: ["rich-text-row"],
 						},
 						{
 							name: "logo-cloud",
@@ -91,7 +107,12 @@ export default defineType({
 						{
 							name: "features",
 							title: "Features",
-							of: ["feature-card", "tabbed-content"],
+							of: ["feature-card", "tabbed-content", "tabbed-features"],
+						},
+						{
+							name: "template",
+							title: "Templates",
+							of: ["about"],
 						},
 						{
 							name: "split",
@@ -102,6 +123,16 @@ export default defineType({
 							name: "carousel",
 							title: "Carousel",
 							of: ["carousel-1", "carousel-2"],
+						},
+						{
+							name: "full-row",
+							title: "Full Row",
+							of: ["full-row"],
+						},
+						{
+							name: "items",
+							title: "Items Grid",
+							of: ["items"],
 						},
 						{
 							name: "timeline",
@@ -121,12 +152,17 @@ export default defineType({
 						{
 							name: "forms",
 							title: "Forms",
-							of: ["form-newsletter"],
+							of: ["form-newsletter", "contact-form", "basic-form"],
 						},
 						{
 							name: "all-posts",
 							title: "All Posts",
 							of: ["all-posts"],
+						},
+						{
+							name: "case-studies",
+							title: "Case Studies",
+							of: ["case-study-grid"],
 						},
 						{
 							name: "stats",
@@ -137,6 +173,11 @@ export default defineType({
 							name: "testimonials",
 							title: "Testimonials",
 							of: ["social-proof"],
+						},
+						{
+							name: "custom",
+							title: "Custom",
+							of: ["custom-block"],
 						},
 					],
 					views: [

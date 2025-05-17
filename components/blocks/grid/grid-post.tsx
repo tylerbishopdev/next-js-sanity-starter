@@ -28,13 +28,13 @@ export default function GridPost({ color, post }: GridPostProps) {
     >
       <div
         className={cn(
-          "flex w-full flex-col justify-between overflow-hidden transition ease-in-out group border rounded-3xl p-4 hover:border-primary",
+          "flex w-full flex-col justify-between overflow-hidden transition ease-in-out group border rounded-3xl p-4 hover:border-primary  ",
           color === "primary"
             ? "group-hover:border-primary-foreground/50"
             : "group-hover:border-primary"
         )}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           {image && image.asset?._id && (
             <div className="mb-4 relative h-[15rem] sm:h-[20rem] md:h-[25rem] lg:h-[9.5rem] xl:h-[12rem] rounded-2xl overflow-hidden">
               <Image

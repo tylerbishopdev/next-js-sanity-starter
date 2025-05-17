@@ -6,27 +6,33 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import SectionContainer from "@/components/ui/section-container";
 import { stegaClean } from "next-sanity";
-import { ColorVariant, SectionPadding, SanityImage } from "@/sanity.types";
+import { ColorVariant } from "@/sanity.types";
 import Link from "next/link";
 
-interface CardFeature
-{
+import { SparklesCore } from "@/components/magicui/sparkles";
+
+interface CardFeature {
 	_key: string;
-	image: SanityImage;
+	image: {
+		asset?: {
+			_ref?: string;
+			url?: string;
+		};
+		alt?: string;
+	};
 	title: string;
 	description: string;
 	actionText?: string;
 	actionUrl?: string;
 }
 
-interface CardsProps
-{
+interface CardsProps {
 	_type: "cards";
 	_key: string;
 	title?: string;
 	description?: string;
 	cards: CardFeature[];
-	padding?: SectionPadding;
+
 	colorVariant?: ColorVariant;
 }
 
@@ -34,18 +40,17 @@ export default function Cards({
 	title,
 	description,
 	cards,
-	padding,
+
 	colorVariant = "background",
-}: CardsProps)
-{
+}: CardsProps) {
 	const color = stegaClean(colorVariant);
 	const isOddCount = cards?.length % 2 !== 0;
 
 	return (
-		<SectionContainer color={color} padding={padding}>
+		<section className="max-w-6xl mx-auto w-11/12 pt-4">
 			{(title || description) && (
-				<div className="text-center mb-12 rounded-lg">
-					{title && <h2 className="text-gradient-primary tracking-tight mb-4">{title}</h2>}
+				<div className="text-center mb-12 px-4 ">
+					{title && <h2 className="tracking-tight mb-4">{title}</h2>}
 					{description && (
 						<p className="max-w-2xl mx-auto text-foreground">
 							{description}
@@ -54,36 +59,49 @@ export default function Cards({
 				</div>
 			)}
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full rounded-lg">
-				{cards?.map((feature, index) =>
-				{
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+				{cards?.map((feature, index) => {
 					// First card gets full width if there's an odd number of cards
 					const isFirstCardWithOddCount = index === 0 && isOddCount;
 
 					return (
 						<Card
 							key={feature._key}
-							className={`transition-all rounded-lg duration-300 hover:shadow-lg w-full h-[450px] flex flex-col ${isFirstCardWithOddCount ? "md:col-span-2" : ""
+							className={`transition-all border border-border-muted duration-300 text-sm align  hover:shadow-lg w-full h-min-[440px] flex flex-col object-fill overflow-hidden ${isFirstCardWithOddCount ? "md:col-span-2" : ""
 								}`}
 						>
-							<div className="w-full h-48 relative bg-foreground/30 overflow-hidden">
+
+							<div className="w-full h-96 relative ">
+								<div className="bg-gradient-to-b from-transparent to-muted/20 inset-0 w-full h-full" />
+								{/* <div className="absolute inset-0 w-full h-full">
+									<SparklesCore
+										background="#1a1b1a24"
+										minSize={0.9}
+										maxSize={0.5}
+										particleDensity={150}
+										className="w-full h-full"
+										particleColor="#7b9e76"
+									/>
+								</div> */}
 								<Image
 									src={feature.image?.asset?.url || "/placeholder.svg"}
 									alt={feature.image?.alt || feature.title}
 									fill
-									className="object-cover"
+									className="object-contain rounded-sm  align-middle  lg:p-0 xl:p-0"
 								/>
 							</div>
-							<CardHeader>
-								<CardTitle className="text-2xl py-2 text-foreground">{feature.title}</CardTitle>
+							<CardHeader className="px-5 py-4 bg-gradient-to-t from-muted/30 to-muted/20">
+
+								<CardTitle className="text-2xl px-2 text-foreground">{feature.title}</CardTitle>
 							</CardHeader>
-							<CardContent className="flex-grow">
-								<CardDescription className="text-base text-foreground">{feature.description}</CardDescription>
+							<CardContent className="flex-grow px-5   pt-0 pb-8 bg-gradient-to-b from-muted/30 to-muted/10">
+
+								<CardDescription className="text-base px-2 text-foreground">{feature.description}</CardDescription>
 							</CardContent>
-							<CardFooter>
+							<CardFooter className="px-5 bg-gradient-to-b from-muted/10 to-transparent ">
 								{feature.actionText && feature.actionUrl && (
 									<Link href={feature.actionUrl}>
-										<Button variant="ghost" className="p-0 h-auto font-medium">
+										<Button variant="outline" className="border-foreground text-foreground">
 											{feature.actionText} →
 										</Button>
 									</Link>
@@ -93,6 +111,6 @@ export default function Cards({
 					);
 				})}
 			</div>
-		</SectionContainer>
+		</section >
 	);
-} 
+}

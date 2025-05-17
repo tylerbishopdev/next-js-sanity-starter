@@ -73,17 +73,17 @@ const CountingNumber = ({ value, prefix = "", suffix = "" }: { value: number; pr
 export default function BigStatsSection({ title, description, stats = [], padding, colorVariant }: BigStatsSectionProps)
 {
 	return (
-		<section className={cn("relative overflow-hidden", padding, colorVariant)}>
+		<section className={cn("relative overflow-hidden mx-auto justify-center align-middle lg:mx-auto px-4 md:px-8 lg:px-0", padding, colorVariant)}>
 			<div className="absolute inset-0" />
 			<SphereMask />
-			<div className="relative mx-auto max-w-6xl px-0 lg:px-0 mb-10 pt-20">
+			<div className="relative max-w-6xl px-4 sm:px-6 lg:px-0 mb-10 pt-20 mx-auto">
 				<div className="mx-auto max-w-2xl lg:max-w-none">
 					<div className="text-center">
-						<h2 className="text-gradient tracking-tight">{title}</h2>
+						<h2 className=" tracking-tight pb-2.5">{title}</h2>
 						<p className="mt-0 font-light tracking-tight text-foreground text-base">{description}</p>
 					</div>
 
-					<dl className="mt-16 p-2 grid grid-cols-1 gap-4  overflow-hidden  text-center sm:grid-cols-2 lg:grid-cols-3">
+					<dl className="mt-16 p-2 px-4 grid grid-cols-1 gap-4 overflow-hidden text-center sm:grid-cols-2 lg:grid-cols-3">
 						{stats?.map((stat: Stat) => (
 							<div key={stat._key} className="flex flex-col border bg-gradient-to-tr from-muted/20 to-muted-5 border-border p-4 backdrop-blur-xl rounded-lg">
 								<dt className="text-xs font-light leading-4 text-foreground/70">{stat.label}</dt>

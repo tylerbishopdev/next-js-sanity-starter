@@ -1,19 +1,25 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
-export default function Custom404() {
+
+const NotFound = () => {
   return (
-    <div className="relative z-20 min-h-[80vh] flex items-center justify-center">
-      <div className="relative px-8 md:px-0 py-[4rem] sm:py-[5rem] md:py-[6.25rem] mx-auto sm:max-w-[37.5rem] md:max-w-[40.625rem] lg:max-w-[53.125rem] xl:max-w-[70rem]">
-        <h1 className="font-bold text-[9.9vw] md:text-[4.5rem] sm:text-[3.4375rem] lg:text-[6rem] xl:text-[8rem] leading-[1.12]">
-          Page not found
-        </h1>
-        <div className="mt-5 text-center">
-          <Button size="lg" asChild>
-            <Link href="/">Back to Home page</Link>
-          </Button>
+    <div className="loader flex flex-col items-center justify-center h-[45rem] w-full mb-56">
+      <div className="flex flex-col items-center">
+        <div className="blackhole w-auto h-auto">
+          <div className="blackhole-circle h-auto w-auto"></div>
+          <div className="blackhole-disc h-auto w-auto"></div>
+        </div>
+
+        <div className="mt-6 w-full max-w-[600px] text-center">
+          <h2 className="text-9xl font-bold mb-2 dark:drop-shadow-black drop-shadow-white drop-shadow-2xl font-mono text-foreground">404</h2>
+          <p className="text-4xl font-bold font-mono dark:drop-shadow-black drop-shadow-white drop-shadow-2xl ">Page Not Found.</p>
+          <p className="text-lg  font-medium font-mono dark:drop-shadow-black drop-shadow-white drop-shadow-2xl ">... and we looked everywhere</p>
+          <div className="pt-10">
+            <a href="/" className="text-lg dark:drop-shadow-black font-bold drop-shadow-white font-medium  drop-shadow-black drop-shadow-2xl mt-10 text-accent hover:brightness-150">back to home</a>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default NotFound;

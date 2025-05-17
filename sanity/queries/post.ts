@@ -56,6 +56,9 @@ export const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{
         alt
       }
     },
+    displayDate,
+    publishedAt,
+    link,
     _createdAt,
     _updatedAt,
     meta_title,
@@ -75,10 +78,14 @@ export const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{
     }
 }`;
 
-export const POSTS_QUERY = groq`*[_type == "post" && defined(slug)] | order(_createdAt desc){
+export const POSTS_QUERY = groq`*[_type == "post" && defined(slug)] | order(publishedAt desc, _createdAt desc){
     title,
     slug,
     excerpt,
+    displayDate,
+    publishedAt,
+    _createdAt,
+    link,
     image{
       asset->{
         _id,

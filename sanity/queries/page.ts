@@ -7,7 +7,7 @@ import { splitRowQuery } from "./split/split-row";
 import { gridRowQuery } from "./grid/grid-row";
 import { threeGridQuery } from "./grid/three-grid";
 import { threeGridAnimatedQuery } from "./grid/three-grid-animated";
-import { FEATURES_STAGGERED_QUERY as featuresStaggeredQuery } from "./grid/features-staggered";
+import { featuresStaggeredQuery } from "./grid/features-staggered";
 import { carousel1Query } from "./carousel/carousel-1";
 import { carousel2Query } from "./carousel/carousel-2";
 import { timelineQuery } from "./timeline";
@@ -16,6 +16,8 @@ import { logoCloud1Query } from "./logo-cloud/logo-cloud-1";
 import { logoCloud2Query } from "./logo-cloud/logo-cloud-2";
 import { faqsQuery } from "./faqs";
 import { formNewsletterQuery } from "./forms/newsletter";
+import { contactFormQuery } from "./forms/contact-form";
+import { basicFormQuery } from "./forms/basic-form";
 import { allPostsQuery } from "./all-posts";
 import { bigStatsSectionQuery } from "./big-stats-section";
 import { socialProofQuery } from "./social-proof";
@@ -24,6 +26,14 @@ import { flexColumnsQuery } from "./flex-columns";
 import { statsCardQuery } from "./stats-card";
 import { cardsQuery } from "./cards";
 import { tabbedContentQuery } from "./tabbed-content";
+import { aboutQuery } from "./template/about";
+import { fullRowQuery } from "./full-row";
+import { richTextRowQuery } from "./rich-text-row";
+import { caseStudyHeroQuery } from "./case-study/case-study-hero";
+import { caseStudyOverviewQuery } from "./case-study/case-study-overview";
+import { caseStudyResultsQuery } from "./case-study/case-study-results";
+import { caseStudyGalleryQuery } from "./case-study/case-study-gallery";
+import { caseStudyGridQuery } from "./case-study/case-study-grid";
 
 export const PAGE_QUERY = groq`
   *[_type == "page" && slug.current == $slug][0]{
@@ -45,6 +55,8 @@ export const PAGE_QUERY = groq`
       ${logoCloud2Query},
       ${faqsQuery},
       ${formNewsletterQuery},
+      ${contactFormQuery},
+      ${basicFormQuery},
       ${allPostsQuery},
       ${bigStatsSectionQuery},
       ${socialProofQuery},
@@ -53,6 +65,67 @@ export const PAGE_QUERY = groq`
       ${statsCardQuery},
       ${cardsQuery},
       ${tabbedContentQuery},
+      ${richTextRowQuery},
+      ${caseStudyHeroQuery},
+      ${caseStudyOverviewQuery},
+      ${caseStudyResultsQuery},
+      ${caseStudyGalleryQuery},
+      ${caseStudyGridQuery},
+      _type == "tabbed-features" => {
+        _type,
+        _key,
+        title,
+        description,
+        padding,
+        colorVariant,
+        tabs[]{
+          _key,
+          title,
+          content[]{
+            ...,
+            _type == "image" => {
+              ...,
+              asset->{
+                _id,
+                url,
+                mimeType,
+                metadata {
+                  lqip,
+                  dimensions {
+                    width,
+                    height
+                  }
+                }
+              }
+            }
+          },
+          image{
+            ...,
+            asset->{
+              _id,
+              url,
+              mimeType,
+              metadata {
+                lqip,
+                dimensions {
+                  width,
+                  height
+                }
+              }
+            },
+            alt
+          },
+        },
+      },
+      ${fullRowQuery},
+      ${aboutQuery},
+      _type == "custom-block" => {
+        _type,
+        _key,
+        padding,
+        colorVariant,
+        selectedComponent
+      },
     },
     meta_title,
     meta_description,

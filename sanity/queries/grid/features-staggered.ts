@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
 
-export const FEATURES_STAGGERED_QUERY = `
+// @sanity-typegen-ignore
+export const featuresStaggeredQuery = groq`
   _type == "features-staggered" => {
     _type,
     _key,

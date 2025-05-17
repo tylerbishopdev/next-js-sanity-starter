@@ -5,6 +5,8 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { urlFor } from "@/sanity/lib/image"
 
+
+
 export interface Metric
 {
 	_key: string
@@ -96,8 +98,8 @@ export default function StatsCard({
 {
 	// Calculate padding class based on padding object
 	const paddingClass = cn({
-		'pt-16': padding?.top,
-		'pb-16': padding?.bottom,
+		'pt-4': padding?.top,
+		'pb-0': padding?.bottom,
 	})
 
 	if (!metrics || metrics.length === 0)
@@ -114,25 +116,30 @@ export default function StatsCard({
 		: fallbackImage
 
 	return (
-		<section className={cn("w-full", paddingClass, colorVariant)}>
-			<div className="justify-center items-center flex max-w-6xl px-4 mx-auto">
-				<div className="justify-items-center w-full p-4 border border-border py-12 mb-6 bg-gradient-to-tr from-muted/30 to-foreground/5 rounded-lg">
-					<div className="lg:flex lg:items-center lg:justify-between mb-10 ">
+		<section 
+			className={cn("relative overflow-hidden max-w-6xl mt-4 border border-border/60 rounded-2xl mx-4 sm:mx-6 lg:mx-auto px-4 py-6 md:px-6 md:py-8 lg:px-8 lg:py-10", paddingClass, colorVariant)}
+		>
+			<div className="mesh-background"></div>
+
+			<div className="relative z-10 justify-center items-center flex w-full">
+				<div className="justify-items-center w-full px-4 py-12 mb-0 rounded-lg">
+
+					<div className="lg:flex lg:items-center lg:justify-between mb-0 ">
 						<div className="lg:w-1/3 lg:pr-6 flex lg:justify-end">
 							<Image
 								src={imageUrl}
 								alt={image?.alt || title || "Stats Comparison"}
 								width={image?.asset?.metadata?.dimensions?.width || 600}
 								height={image?.asset?.metadata?.dimensions?.height || 400}
-								className="w-1/2 lg:w-2/3 my-4 mx-auto lg:mx-0"
+								className="w-1/2 lg:w-2/3 my-4 mx-auto lg:mx-0 opacity-90 shadow-lg"
 							/>
 						</div>
 						<div className="lg:w-2/3 lg:text-left max-w-2xl rounded-lg">
 							<h2 className="mx-auto lg:mx-0 text-center lg:text-left">{title}</h2>
-							<p className="w-3/4">{description}</p>
+							<p className="w-3/4 pt-4">{description}</p>
 						</div>
 					</div>
-					<div className="flex flex-col gap-3.5 py-4 px-5 mt-10 max-w-4xl mx-auto text-lg font-bold text-muted border border-border/40 shadown-lg rounded-lg bg-gradient-to-tr from-muted/30 to-foreground/5">
+					<div className="flex flex-col gap-3.5 py-8 px-4 sm:px-5 mt-10 max-w-4xl mx-auto text-lg font-bold text-muted border border-border-30 shadow-2xl shadow-foreground rounded-lg bg-gradient-to-tr dark:from-muted/10 from-foreground/15 to-background/20">
 						{metrics.map((metric) => (
 							<MetricBar key={metric._key} metric={metric} />
 						))}

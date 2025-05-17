@@ -106,6 +106,31 @@ export default defineType({
       type: "image",
       group: "seo",
     }),
+    // Display date field for user-friendly date formatting
+    defineField({
+      name: "displayDate",
+      title: "Display Date",
+      description:
+        "The formatted date to display on the post (e.g., 'February 28, 2024')",
+      type: "string",
+      group: "settings",
+    }),
+    // Publication date field for sorting and filtering
+    defineField({
+      name: "publishedAt",
+      title: "Published At",
+      description: "The official publication date and time",
+      type: "datetime",
+      group: "settings",
+    }),
+    // External link field if this content is syndicated from elsewhere
+    defineField({
+      name: "link",
+      title: "External Link",
+      description: "Optional: URL where this content was originally published",
+      type: "url",
+      group: "settings",
+    }),
   ],
 
   preview: {
