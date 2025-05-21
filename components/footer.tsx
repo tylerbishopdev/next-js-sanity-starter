@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import React from "react"
+import Logo from "./logo"
 
 
 interface FooterNavItem {
@@ -107,7 +108,7 @@ export default function Footer({ navs, bottomLinks, socialLinks, logoSrc }: Site
   const navData = navs || defaultNavs
   const bottomData = bottomLinks || defaultBottomLinks
   const socialData = socialLinks || defaultSocialLinks
-  const logo = logoSrc || "/images/wtlogo.png"
+
 
   return (
     <footer className="">
@@ -136,7 +137,7 @@ export default function Footer({ navs, bottomLinks, socialLinks, logoSrc }: Site
             {/* Logo */}
             <div className="mb-4 md:mb-0">
               <Link href="/">
-                <Image src={logo} alt="Logo" width={120} height={40} className="invert" />
+                <Logo />
               </Link>
             </div>
 
